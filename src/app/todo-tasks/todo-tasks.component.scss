@@ -164,13 +164,17 @@ button[disabled] {
   display: flex;
   justify-content: center;
   width: 100%;
+
+  h1 {
+    font-size: 32px;
+  }
 }
 
 .todo-card-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px;
+  padding: 24px 16px 16px 16px;
   height: 100%;
   min-width: 100%;
   max-width: -webkit-fill-available;
@@ -185,6 +189,7 @@ button[disabled] {
   padding: 0 16px;
   align-items: baseline;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .app-custom-input {
