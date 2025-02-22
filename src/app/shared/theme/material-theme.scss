@@ -1,0 +1,141 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Define custom palettes
+$custom-primary: mat-palette((
+  50: #E7E9E7,
+  100: #C2C8C4,
+  200: #9AA39D,
+  300: #717E75,
+  400: #526358,
+  500: #2C3930,  // original primary color
+  600: #27332B,
+  700: #212C24,
+  800: #1B241E,
+  900: #101713,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+));
+
+$custom-accent: mat-palette((
+  50: #F5F0EC,
+  100: #E5D9CF,
+  200: #D4C0AF,
+  300: #C3A68F,
+  400: #B69377,
+  500: #A27B5C,  // original accent color
+  600: #947154,
+  700: #83644A,
+  800: #725741,
+  900: #574030,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+));
+
+$custom-warn: mat-palette((
+  50: #FFFBEB,
+  100: #FFF5CC,
+  200: #FFEEAA,
+  300: #FFE788,
+  400: #FFE166,
+  500: #FFCC00,  // original warn color
+  600: #FFB800,
+  700: #FFA200,
+  800: #FF8C00,
+  900: #FF6200,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: rgba(black, 0.87),
+    700: white,
+    800: white,
+    900: white,
+  )
+));
+
+$custom-danger-pallete: mat-palette((
+  50: #FFE6E6,
+  100: #FFB3B3,
+  200: #FF8080,
+  300: #FF4D4D,
+  400: #FF1A1A,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+  )
+));
+
+$custom-background-pallete: mat-palette((
+  50: #F7F6F4,
+  100: #EAE7E2,
+  200: #DCD7CF,
+  300: #DCD7C9,  // original background color
+  400: #CEC8B8,
+  500: #C0B9A7,
+  600: #B2AA96,
+  700: #A49B85,
+  800: #968C74,
+  900: #887D63,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: rgba(black, 0.87),
+    700: white,
+    800: white,
+    900: white,
+  )
+));
+
+$theme: mat-light-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-accent,
+    warn: $custom-warn
+  )
+));
+
+$theme: map-merge($theme, (
+  background: $custom-background-pallete,
+  error: $custom-danger-pallete
+));
+
+// Add this after the theme merge to create a custom CSS class
+.mat-error {
+  color: mat-color($custom-danger-pallete, 400) !important;
+}
+
+@include angular-material-theme($theme);
+
+$custom-background: mat-color($custom-background-pallete);
+$custom-primary: mat-color($custom-primary, 500);

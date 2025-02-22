@@ -1,0 +1,25 @@
+.confirm-dialog {
+  padding: 20px;
+  text-align: center;
+}
+
+.warning-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+  color: #f44336;
+  margin-bottom: 16px;
+}
+
+mat-dialog-content {
+  margin: 16px 0;
+}
+
+mat-dialog-actions {
+  margin-top: 16px;
+}
+
+.modal-dialog_actions {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,234 @@
+@import '~src/app/shared/theme/material-theme.scss';
+
+.container {
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+}
+
+.todo-card {
+  margin: 0 auto;
+  background-color: $custom-primary;
+  color: white;
+  height: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.task-form {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.task-input {
+  flex: 1;
+}
+
+.task-list {
+  padding: 0;
+}
+
+.task-item {
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(44, 57, 48, 1) 41%, rgba(162, 123, 92, 1) 100%);
+  border-left: 4px solid transparent;
+}
+
+.task-item.completed {
+  background-color: var(--mat-background-200);
+  border-left: 4px solid var(--mat-primary-500);
+  opacity: 0.8;
+}
+
+.task-checkbox {
+  flex: 1;
+}
+
+.task-title {
+  transition: all 0.3s ease;
+  word-break: keep-all;
+  white-space: nowrap;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: white;
+}
+
+.task-item_content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.mat-list-item_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.completed-text {
+  text-decoration: line-through;
+}
+
+.task-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 1px;
+  background-color: var(--mat-secondary-500);
+  transition: width 0.3s ease;
+}
+
+.completed-text::after {
+  width: 100%;
+}
+
+.delete-button {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.delete-button:hover {
+  opacity: 1;
+}
+
+/* Add styles for error messages */
+mat-error {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Style the disabled button */
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animation for new tasks */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-item_checkbox {
+  ::ng-deep .mat-checkbox-frame {
+    border-color: $custom-background;
+  }
+}
+
+.task-item {
+  animation: slideIn 0.3s ease;
+}
+
+/* Hover effect for tasks */
+.task-item:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.btn-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.btn-submit_icon-primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.todo-card-title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.todo-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  height: 100%;
+  min-width: 100%;
+  max-width: -webkit-fill-available;
+  box-sizing: border-box;
+  background-color: $custom-background;
+  border-radius: 50px 50px 0 0;
+}
+
+.todo-card-content_form {
+  display: flex;
+  gap: 16px;
+  padding: 0 16px;
+  align-items: baseline;
+  width: 100%;
+}
+
+.app-custom-input {
+  width: 100%;
+  flex: 2;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+@media (max-width: 600px) {
+  .todo-card-content_form {
+    flex-direction: column;
+  }
+
+  .btn-submit {
+    width: 100%;
+  }
+
+  .app-custom-input {
+    width: 100%;
+  }
+}
+
+.filter-container {
+  padding: 0 16px;
+
+  mat-form-field {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter-container mat-form-field {
+    width: 100%;
+  }
+}
+
+// .todo-subcard_light {
+//   border-radius: 10px 10px 0 0;
+//   background-color: $custom-background;
+// }

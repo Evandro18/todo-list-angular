@@ -1,0 +1,55 @@
+<div class="container">
+  <mat-card class="todo-card">
+    <mat-card-header class="todo-card-title">
+      <mat-card-title>
+        <h1>Todo Tasks</h1>
+      </mat-card-title>
+    </mat-card-header>
+
+    <!-- <div class="todo-subcard_light"> -->
+    <mat-card-content class="todo-card-content">
+      <form class="todo-card-content_form" (ngSubmit)="addTask()">
+        <app-custom-input class="app-custom-input" [control]="taskFormControl" [matcher]="matcher" label="Task"
+          placeholder="Add a new task" [minLength]="3" required>
+        </app-custom-input>
+        <button mat-raised-button class="btn-submit" color="primary" type="submit" [disabled]="taskFormControl.invalid"
+          submitButton>
+          <div class="btn-submit_icon-primary">
+            <mat-icon>add</mat-icon>
+            Add Task
+          </div>
+        </button>
+      </form>
+
+      <div class="filter-container">
+        <mat-form-field>
+          <mat-label>Filter tasks</mat-label>
+          <mat-select (selectionChange)="onFilterChange($event.value)" value="all">
+            <mat-option *ngFor="let option of filterOptions" [value]="option.value">
+              {{option.label}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-list class="task-list">
+        <span *ngIf="filteredTasks.length === 0">No tasks found</span>
+        <mat-list-item class="mat-list-item_content" *ngFor="let task of filteredTasks" class="task-item"
+          [class.completed]="task.completed">
+          <div class="task-item_content">
+            <mat-checkbox class="task-item_checkbox" [checked]="task.completed" (change)="toggleTaskStatus(task)">
+            </mat-checkbox>
+            <span class="task-title" [class.completed-text]="task.completed">
+              {{task.title}}
+            </span>
+          </div>
+          <button mat-icon-button color="warn" (click)="deleteTask(task.id)" class="delete-button">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <!-- </div> -->
+  </mat-card>
+</div>

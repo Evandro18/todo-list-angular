@@ -1,0 +1,22 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--mat-primary-50);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  width: 100vw;
+}
+
+.full-width {
+  width: 100%;
+}
